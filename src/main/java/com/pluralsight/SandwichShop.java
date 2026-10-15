@@ -6,10 +6,21 @@ public class SandwichShop {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
 
-        System.out.println("What size sandwich would you like?");
-        System.out.print("Please enter 1 for regular or 2 for large: ");
+        boolean condition = true;
+        int sizeInput = 0;
 
-        int sizeInput = scan.nextInt();
+        while (condition){
+            System.out.println("What size sandwich would you like?");
+            System.out.print("Please enter 1 for regular or 2 for large: ");
+            sizeInput = scan.nextInt();
+
+            if (sizeInput == 1 || sizeInput == 2){
+                condition = false;
+            } else {
+                System.out.println("Invalid size, please try again.");
+            }
+        }
+
 
         System.out.print("How old are you if you don't mind me asking? ");
 
@@ -39,8 +50,6 @@ public class SandwichShop {
                 finalPrice = basePrice;
             }
             System.out.printf("Your %s sandwich costs: $%.2f", size, finalPrice);
-        } else {
-            System.out.println("Invalid input, please try again and enter a valid size");
         }
     }
 }
