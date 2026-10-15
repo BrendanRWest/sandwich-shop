@@ -8,9 +8,9 @@ public class SandwichShop {
 
         boolean condition = true;
         int sizeInput = 0;
+        System.out.println("What size sandwich would you like?");
 
         while (condition){
-            System.out.println("What size sandwich would you like?");
             System.out.print("Please enter 1 for regular or 2 for large: ");
             sizeInput = scan.nextInt();
 
@@ -21,35 +21,26 @@ public class SandwichShop {
             }
         }
 
-
         System.out.print("How old are you if you don't mind me asking? ");
-
         int age = scan.nextInt();
+
         String size;
         double basePrice, finalPrice;
 
         if(sizeInput == 1) {
             size = "Regular";
             basePrice = 5.45;
-            if (age <= 17) {
-                finalPrice = basePrice * .9;
-            } else if (age >= 65) {
-                finalPrice = basePrice * .8;
-            } else {
-                finalPrice = basePrice;
-            }
-            System.out.printf("Your %s sandwich costs: $%.2f", size, finalPrice);
-        } else if (sizeInput == 2) {
+        } else {
             size = "Large";
             basePrice = 8.95;
-            if (age <= 17) {
-                finalPrice = basePrice * .9;
-            } else if (age >= 65) {
-                finalPrice = basePrice * .8;
-            } else {
-                finalPrice = basePrice;
-            }
-            System.out.printf("Your %s sandwich costs: $%.2f", size, finalPrice);
         }
+        if (age <= 17) {
+            finalPrice = basePrice * .9;
+        } else if (age >= 65) {
+            finalPrice = basePrice * .8;
+        } else {
+            finalPrice = basePrice;
+        }
+        System.out.printf("Your %s sandwich costs: $%.2f", size, finalPrice);
     }
 }
